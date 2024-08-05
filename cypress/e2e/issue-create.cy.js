@@ -15,16 +15,16 @@ describe("Issue create", () => {
       cy.get(".ql-editor").type("My bug description");
       cy.get(".ql-editor").should("have.text", "My bug description");
   
-      cy.get('input[name="title"]').type("Bug");
-      cy.get('input[name="title"]').should("have.value", "Bug");
+      cy.get('input[name="title"]').type("bug");
+      cy.get('input[name="title"]').should("have.value", "bug");
   
       //Open issue type dropdown and choose Bug
       cy.get('[data-testid="select:type"]').click();
-      cy.get('[data-testid="select-option:Bug"]')
+      cy.get('[data-testid="select-option:bug"]')
         .wait(1000)
         .trigger("mouseover")
         .trigger("click");
-      cy.get('[data-testid="icon:Bug"]').should("be.visible");
+      cy.get('[data-testid="icon:bug"]').should("be.visible");
   
       // Select Pickle Rick from reporter dropdown
       cy.get('[data-testid="select:reporterId"]').click();
@@ -60,20 +60,20 @@ describe("Issue create", () => {
             .should("have.length", "5")
             .first()
             .find("p")
-            .contains("Bug")
+            .contains("bug")
             .siblings()
             .within(() => {
               //Assert that correct avatar and type icon are visible
               cy.get('[data-testid="avatar:Lord Gaben"]').should("be.visible");
-              cy.get('[data-testid="icon:Bug"]').should("be.visible");
+              cy.get('[data-testid="icon:bug"]').should("be.visible");
             });
   
           cy.get('[data-testid="board-list:backlog"]')
-            .contains("Bug")
+            .contains("bug")
             .within(() => {
               // Assert that correct avatar and type icon are visible
               cy.get('[data-testid="avatar:Lord Gaben"]').should("be.visible");
-              cy.get('data-testid="icon:Bug"]').should("be.visible");
+              cy.get('data-testid="icon:bug"]').should("be.visible");
             });
         });
     });
