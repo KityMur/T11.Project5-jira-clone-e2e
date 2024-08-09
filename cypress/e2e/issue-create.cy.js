@@ -82,9 +82,9 @@ describe("Issue create", () => {
 
   import IssueModal from "../pages/IssueModal";
   import { faker } from "@faker-js/faker";
-  Cypress.on('uncaught:exception', (err, runnable) => {
-    // returning false here prevents Cypress from
+ // returning false here prevents Cypress from
     // failing the test
+  Cypress.on('uncaught:exception', (err, runnable) => {
     return false
   })
   describe("Issue create", () => {
